@@ -1,0 +1,143 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Header Section */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Background color for the header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+    z-index: 1000; /* Ensure it stays above other content */
+    padding: 10px 20px; /* Add some padding for spacing */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between logo and navigation */
+    align-items: center; /* Vertically center the items */
+}
+
+header .logo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+header nav {
+    display: flex;
+    gap: 20px; /* Control the spacing between the links */
+    margin-right: 50px; /* Adjust this to move links left */
+}
+
+header nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Section */
+main {
+    text-align: center;
+    padding: 50px 20px; /* Add padding to create space above and below */
+    position: relative; /* Ensures the arrow stays in place */
+    height: 85vh; /* Makes the first section take the full screen height */
+}
+
+main h1 {
+    font-size: 180px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+main .subtitle {
+    font-size: 50px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+main .cta {
+    position: absolute; /* Position it relative to the viewport */
+    bottom: 20px; /* Move it 20px above the bottom edge */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    text-align: center; /* Center-align text and arrow */
+    font-size: 16px; /* Adjust font size if needed */
+}
+
+main .cta .arrow {
+    font-size: 60px;
+    color: #333;
+    margin-top: 10px;
+    animation: bounce 1.5s infinite; /* Optional bounce animation */
+}
+
+/* Arrow Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Character Section */
+.character-section {
+    height: 100vh; /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.character-container {
+    text-align: center;
+    cursor: pointer; /* Make it clickable */
+}
+
+.character-image {
+    width: 300px; /* Adjust size of the character */
+    filter: blur(5px); /* Add blur effect */
+    transition: 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.character-image:hover {
+    filter: blur(0); /* Remove blur on hover */
+}
+
+.character-text {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 70px;
+    color: #333;
+}
+
+.character-container:hover .character-text {
+    filter: blur(0); /* Remove blur when hovering over container */
+}
+
+/* Remove underline and default blue color */
+a {
+    text-decoration: none; /* Removes underline */
+    color: black; /* Default color */
+    font-weight: bold; /* Makes it stand out */
+}
+
+/* Add hover effect */
+a:hover {
+    color: darkgray; /* Change color on hover */
+    text-decoration: underline; /* Add underline when hovered */
+}
+
+/* Change visited link color (optional) */
+a:visited {
+    color: gray; /* Adjust the color for visited links */
+}
