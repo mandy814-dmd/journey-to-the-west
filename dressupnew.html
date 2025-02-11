@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dress Up New</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Header Section -->
+<header>
+    <div class="logo">Name/logo</div>
+    <nav>
+        <a href="landing-page.html">Home</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+</header>
+<!-- Main Content Section -->
+<main>
+    <!--Dress-up content will go here -->
+    <h2>
+        Every great performer begins with the right look. Choose a hat, and let the shadows reveal your destiny!
+    </h2>
+
+    <br></br>
+
+    <form id="puppetForm" action="store_choices.php" method="POST">
+        <label for="userid">User ID:</label>
+        <input type="text" id="userid" name="userid" required>
+        <br><br>
+
+        <h2>Choose a Hat:</h2>
+        <div class="options-container" id="hatOptions">
+            <img src="images/hat1.png" alt="Hat 1" width="180px" data-value="hat1.png" onclick="selectOption(this, 'hat')">
+            <img src="images/hat2.png" alt="Hat 2" data-value="hat2.png" onclick="selectOption(this, 'hat')">
+            <img src="images/hat3.png" alt="Hat 3" data-value="hat3.png" onclick="selectOption(this, 'hat')">
+            <img src="images/hat4.png" alt="Hat 4" data-value="hat4.png" onclick="selectOption(this, 'hat')">
+        </div>
+        <input type="hidden" name="hat" id="hat" required>
+
+        <h2>Choose a Mask:</h2>
+        <div class="options-container" id="maskOptions">
+            <img src="images/mask1.png" alt="Mask 1" width="150px" data-value="mask1.png" onclick="selectOption(this, 'mask')">
+            <img src="images/mask2.png" alt="Mask 2" data-value="mask2.png" onclick="selectOption(this, 'mask')">
+            <img src="images/mask3.png" alt="Mask 3" data-value="mask3.png" onclick="selectOption(this, 'mask')">
+            <img src="images/mask4.png" alt="Mask 4" data-value="mask4.png" onclick="selectOption(this, 'mask')">
+        </div>
+        <input type="hidden" name="mask" id="mask" required>
+
+        <h2>Choose a Clothe:</h2>
+        <div class="options-container" id="clotheOptions">
+            <img src="images/clothe1.png" alt="Clothe 1" width="500px" data-value="clothe1.png" onclick="selectOption(this, 'clothe')">
+            <img src="images/clothe2.png" alt="Clothe 2" data-value="clothe2.png" onclick="selectOption(this, 'clothe')">
+            <img src="images/clothe3.png" alt="Clothe 3" data-value="clothe3.png" onclick="selectOption(this, 'clothe')">
+            <img src="images/clothe4.png" alt="Clothe 4" data-value="clothe4.png" onclick="selectOption(this, 'clothe')">
+        </div>
+        <input type="hidden" name="clothe" id="clothe" required>
+
+        <h2>Choose a Prop:</h2>
+        <div class="options-container" id="propsOptions">
+            <img src="images/prop1.png" alt="Prop 1" width="200px" data-value="prop1.png" onclick="selectOption(this, 'props')">
+            <img src="images/prop2.png" alt="Prop 2" data-value="prop2.png" onclick="selectOption(this, 'props')">
+            <img src="images/prop3.png" alt="Prop 3" data-value="prop3.png" onclick="selectOption(this, 'props')">
+            <img src="images/prop4.png" alt="Prop 4" data-value="prop4.png" onclick="selectOption(this, 'props')">
+        </div>
+        <input type="hidden" name="props" id="props" required>
+
+        <h2>Your Current Puppet:</h2>
+        <div class="preview" id="previewArea">
+            <!-- Selected images will be displayed here -->
+        </div>
+
+        <button type="submit">Save Choices</button>
+    </form>
+
+    <script>
+        function selectOption(image, category) {
+            // Deselect previously selected option
+            const options = document.querySelectorAll(`#${category}Options img`);
+            options.forEach(option => option.classList.remove('selected'));
+
+            // Select the current option
+            image.classList.add('selected');
+
+            // Set the hidden input value
+            document.getElementById(category).value = image.getAttribute('data-value');
+
+            // Update the preview area
+            updatePreview();
+        }
+
+        function updatePreview() {
+            const categories = ['hat', 'mask', 'clothe', 'props'];
+            const previewArea = document.getElementById('previewArea');
+            previewArea.innerHTML = ''; // Clear the preview area
+
+            // Loop through categories and display selected images
+            categories.forEach(category => {
+                const value = document.getElementById(category).value;
+                if (value) {
+                    previewArea.innerHTML += `<img src="images/${value}" alt="${category}" width="200px">`;
+                }
+            });
+        }
+    </script>
+</main>
+</body>
+</html>
